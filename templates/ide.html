@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ide.css') }}">
+
+    <title>NetIDE</title>
+</head>
+
+<body>
+    <form action="/Compiler" method="post">
+        <div class="header" id="header">NetIDE</div>
+        <div class="control-panel">
+            Select Language:
+            <select name="languages" class="languages">
+                <option value="c"> C </option>
+                <option value="cpp"> C++ </option>
+                <option value="php"> PHP </option>
+                <option value="py"> Python </option>
+                <option value="js"> Node JS </option>
+                <!-- {% for o in data %}
+                    <option value="{{ o.name }} selected">{{ o.name }}</option>
+                {% endfor %} -->
+            </select> &nbsp; &nbsp; Select theme:
+            <select id="theme" class="theme">
+                <option value="monokai"> monokai </option>
+                <option value="night_blue"> night_blue </option>
+                <option value="github"> github </option>
+                <option value="chaos"> chaos </option>
+                <option value="dracula"> dracula </option>
+            </select>
+        </div>
+        <div class="editor" id="editor">
+            <!-- <input type="text" name="textEditor" id="textEditor" placeholder="Write your code here..."> -->
+        </div>
+        <textarea class="col-md-6" name="content" id="content" rows="5" cols="70"></textarea>
+
+        <div class="button-container">
+            <input type="submit" id="runbtn" name="runbtn" class="btn-run" value="run" />
+
+        </div>
+
+        <div class="output" id="ajaxResponse">
+            <h3>{{ result }}</h3>
+        </div>
+
+        <!-- Script tags -->
+        <script src="{{ url_for('static', filename = 'js/lib/ace.js')}}"></script>
+
+        <script src="{{ url_for('static' ,filename = 'js/lib/theme-monokai.js')}}"></script>
+        <script src="js/lib/theme-tomorrow_night_blue.js"></script>
+        <script src="js/lib/theme-github.js"></script>
+        <script src="js/lib/theme-chaos.js"></script>
+        <script src="js/lib/theme-dracula.js"></script>
+
+        <script src="js/jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- <script src="{{ url_for('static', filename = 'js/ide.js') }}"></script> -->
+    </form>
+</body>
+
+</html>
